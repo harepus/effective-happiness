@@ -1,0 +1,137 @@
+"Dato";"Forklaring";"Rentedato";"Ut fra konto";"Inn på konto"
+"31.03.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 31.03 kl. 17.38";"01.04.2025";117.4;""
+"31.03.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 31.03 kl. 20.12";"01.04.2025";69.9;""
+"01.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 01.04 kl. 09.55";"01.04.2025";31.9;""
+"02.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 02.04 kl. 08.08";"02.04.2025";26.9;""
+"02.04.2025";"Varekjøp Kiwi 586 Trikke Vestgrensa 2 Oslo Dato 02.04 kl. 11.46";"02.04.2025";92.22;""
+"02.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 02.04 kl. 16.33";"03.04.2025";16.9;""
+"02.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 02.04 kl. 20.46";"03.04.2025";71.9;""
+"03.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 03.04 kl. 09.48";"03.04.2025";31.9;""
+"03.04.2025";"Varekjøp Duty Free Avgan Camilla Coll Garder Dato 03.04 kl. 12.33";"03.04.2025";109;""
+"04.04.2025";"Kontoregulering  267 Mobil Overføring ";"04.04.2025";"";450
+"04.04.2025";"Kontoregulering  213 Mobil Overføring ";"04.04.2025";"";110
+"03.04.2025";"Visa  100021  Ruterappen";"04.04.2025";101;""
+"03.04.2025";"Visa  100121  Wh Smith Norway";"04.04.2025";52;""
+"04.04.2025";"Visa  100022  Isk 1056,00 Hagkaup GardabaerValutakurs: 0,0817";"07.04.2025";86.35;""
+"04.04.2025";"Visa  100122  Isk 899,00 Hagkaup GardabaerValutakurs: 0,0817";"07.04.2025";73.52;""
+"06.04.2025";"Visa  100222  Isk 488,00 Bonus GardatorgiValutakurs: 0,0829";"07.04.2025";40.46;""
+"07.04.2025";"Visa  100012  Isk 1579,00 Prosegur Change kValutakurs: 0,0828";"08.04.2025";130.89;""
+"07.04.2025";"Visa  100122  Isk 499,00 Point Southb Kef 5Valutakurs: 0,0829";"08.04.2025";41.37;""
+"07.04.2025";"Visa  100222  Nok 99,00 Google :youtubeprem";"08.04.2025";99;""
+"07.04.2025";"Visa  100322  Eur 2,85 Carref Las GloriasValutakurs: 12,0912";"08.04.2025";34.46;""
+"07.04.2025";"Visa  100422  Eur 1,85 T477 Cc Glories, BarValutakurs: 12,0918";"08.04.2025";22.37;""
+"07.04.2025";"Visa  100522  Eur 19,99 Hm Es0205Valutakurs: 12,0920";"08.04.2025";241.72;""
+"07.04.2025";"Visa  100622  Eur 25,40 Via NapoliValutakurs: 12,0917";"08.04.2025";307.13;""
+"07.04.2025";"Visa  100722  Eur 13,30 Via NapoliValutakurs: 12,0924";"08.04.2025";160.83;""
+"08.04.2025";"Kontoregulering  268 Mobil Overføring ";"09.04.2025";"";500
+"08.04.2025";"Kontoregulering  215 Mobil Overføring ";"09.04.2025";"";240
+"09.04.2025";"Overføring Innland  752 Til : 83852851220 Mobil Betaling";"09.04.2025";10.05;""
+"08.04.2025";"Visa  100022  Eur 4,99 Aeropuerto Josep TarValutakurs: 12,2985";"09.04.2025";61.37;""
+"10.04.2025";"Lønn  126199286 Universitetet i Oslo Lønnsseksjon ";"10.04.2025";"";389.8
+"09.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 09.04 kl. 19.14";"10.04.2025";234.21;""
+"10.04.2025";"Lønn  66769999999 Studentsamskipnaden Sio ";"10.04.2025";"";5476
+"10.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 10.04 kl. 12.00";"10.04.2025";26.9;""
+"10.04.2025";"Kontoregulering  269 Mobil Overføring ";"10.04.2025";"";234
+"10.04.2025";"Overføring Innland  753 Henning Nordhagen Mobil BetalingLeie Mai Seb";"10.04.2025";6333;""
+"09.04.2025";"Visa  100021  Ruterappen";"10.04.2025";466;""
+"09.04.2025";"Visa  100121  Ruterappen";"10.04.2025";101;""
+"11.04.2025";"Lønn  127293129 Statens Lånekasse For Utdanning ";"11.04.2025";"";10342.49
+"10.04.2025";"Varekjøp Coop Mega Storo Vitaminveien Oslo Dato 10.04 kl. 16.21";"11.04.2025";108.48;""
+"12.04.2025";"Overføring  4097752544 Matheo Storbugt Torheim Ipad M1Tpp: Vipps Mobilepay AS";"14.04.2025";3900;""
+"11.04.2025";"Kontoregulering  756 Mobil Overføring ";"14.04.2025";1000;""
+"11.04.2025";"Kontoregulering  755 Mobil Overføring ";"14.04.2025";4000;""
+"11.04.2025";"Kontoregulering  757 Mobil Overføring ";"14.04.2025";1500;""
+"11.04.2025";"Kontoregulering  270 Mobil Overføring ";"14.04.2025";"";108
+"11.04.2025";"Giro  758 Nordnet Bank Ab Mobil Betaling";"14.04.2025";2000;""
+"12.04.2025";"Overføring Innland  713 Christian a Føllesdal Burg";"14.04.2025";"";145
+"13.04.2025";"Overføring Innland  714 Christian a Føllesdal Minecraft Filmen";"14.04.2025";"";185
+"13.04.2025";"Overføring Innland  801 Carl-Fredrik Akervold ";"14.04.2025";"";185
+"13.04.2025";"Overføring Innland  760 Christian August Føllesdal BetalingTpp: Vipps Mobilepay AS";"14.04.2025";80;""
+"13.04.2025";"Kontoregulering  271 Mobil Overføring ";"14.04.2025";"";600
+"13.04.2025";"Kontoregulering  217 Mobil Overføring ";"14.04.2025";"";141
+"13.04.2025";"Kontoregulering  216 Mobil Overføring ";"14.04.2025";"";185
+"12.04.2025";"Kontoregulering  204 Mobil Overføring ";"14.04.2025";"";2000
+"12.04.2025";"Kontoregulering  205 Mobil Overføring ";"14.04.2025";"";2000
+"11.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 11.04 kl. 18.14";"14.04.2025";226.3;""
+"12.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 12.04 kl. 10.46";"14.04.2025";36.31;""
+"13.04.2025";"Varekjøp Colosseum Kino Fr. Nansensv Oslo Dato 13.04 kl. 20.25";"14.04.2025";141;""
+"13.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 13.04 kl. 19.49";"14.04.2025";10;""
+"12.04.2025";"E-varekjøp Kiwi 305 Kjørbo Sandvika Dato 12.04 kl. 20.00";"14.04.2025";25.9;""
+"12.04.2025";"Varekjøp Viking Burger Johs. Hauger Kolsås Dato 12.04 kl. 19.40";"14.04.2025";325;""
+"12.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 12.04 kl. 17.52";"14.04.2025";416;""
+"13.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 13.04 kl. 11.30";"14.04.2025";31.9;""
+"14.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 14.04 kl. 10.46";"14.04.2025";147.8;""
+"13.04.2025";"Visa  100021  Nordisk Film Kino";"14.04.2025";555;""
+"14.04.2025";"Kontoregulering  218 Mobil Overføring ";"15.04.2025";"";500
+"14.04.2025";"Kontoregulering  219 Mobil Overføring ";"15.04.2025";"";500
+"14.04.2025";"E-varekjøp Meny Trekanten Asker Dato 14.04 kl. 19.13";"15.04.2025";10.43;""
+"14.04.2025";"E-varekjøp Kiwi 486 Bankve Asker Dato 14.04 kl. 15.06";"15.04.2025";79.24;""
+"14.04.2025";"Varekjøp Ice Sandvika Brodtkorpsgt Sandvika Dato 14.04 kl. 20.47";"15.04.2025";89.7;""
+"15.04.2025";"Kontoregulering  272 Mobil Overføring ";"15.04.2025";"";90
+"15.04.2025";"Kontoregulering  220 Mobil Overføring ";"15.04.2025";"";90
+"15.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 15.04 kl. 11.32";"15.04.2025";26.9;""
+"14.04.2025";"Visa  100021  Zettle_:jasmin Frisor";"15.04.2025";500;""
+"14.04.2025";"Visa  100121  Tise As: Tise Payment";"15.04.2025";523;""
+"14.04.2025";"Visa  100221  Ruterappen";"15.04.2025";44;""
+"14.04.2025";"Visa  100321  Zettle_:simon Fayers f";"15.04.2025";282;""
+"14.04.2025";"Visa  100421  Ruterappen";"15.04.2025";44;""
+"15.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 15.04 kl. 15.12";"16.04.2025";551.99;""
+"15.04.2025";"Varekjøp Coop Mega Storo Vitaminveien Oslo Dato 15.04 kl. 15.00";"16.04.2025";59.9;""
+"16.04.2025";"Varekjøp Coop Prix Postg Biskop Gunne Oslo Dato 16.04 kl. 11.45";"16.04.2025";22;""
+"16.04.2025";"Overføring Innland  761 Mads Gustavsen BetalingTpp: Vipps Mobilepay AS";"16.04.2025";1000;""
+"15.04.2025";"Visa  100031  Vipps:vipps:torstein Grud";"16.04.2025";"";2300
+"16.04.2025";"Varekjøp Ark Storo Oslo Vitaminveien Oslo Dato 16.04 kl. 15.23";"22.04.2025";39.9;""
+"20.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 20.04 kl. 11.30";"22.04.2025";34.9;""
+"19.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 19.04 kl. 14.07";"22.04.2025";49.88;""
+"21.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 21.04 kl. 17.38";"22.04.2025";96.8;""
+"21.04.2025";"Varekjøp Bunnpris Storo Vitaminveien Oslo Dato 21.04 kl. 17.05";"22.04.2025";29.9;""
+"19.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 19.04 kl. 10.18";"22.04.2025";57.2;""
+"16.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 16.04 kl. 21.21";"22.04.2025";311.8;""
+"18.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 18.04 kl. 10.00";"22.04.2025";58.8;""
+"18.04.2025";"Kontoregulering  762 Mobil Overføring ";"22.04.2025";1300;""
+"18.04.2025";"Kontoregulering  273 Mobil Overføring ";"22.04.2025";"";1030
+"22.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 22.04 kl. 10.49";"22.04.2025";78.8;""
+"22.04.2025";"Kontoregulering  274 Mobil Overføring ";"22.04.2025";"";370
+"22.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 22.04 kl. 13.33";"22.04.2025";31.9;""
+"16.04.2025";"Visa  100021  Ruterappen";"22.04.2025";101;""
+"16.04.2025";"Visa  100121  Ruterappen";"22.04.2025";44;""
+"16.04.2025";"Visa  100221  Ruterappen";"22.04.2025";44;""
+"20.04.2025";"Visa  100321  Sats Norway AS";"22.04.2025";426.3;""
+"22.04.2025";"Overføring  4107878573 David Ranstrøm BoksingTpp: Vipps Mobilepay AS";"23.04.2025";450;""
+"22.04.2025";"Kontoregulering  275 Mobil Overføring ";"23.04.2025";"";505
+"22.04.2025";"Kontoregulering  221 Mobil Overføring ";"23.04.2025";"";450
+"22.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 22.04 kl. 17.27";"23.04.2025";505.4;""
+"23.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 23.04 kl. 11.18";"23.04.2025";84.8;""
+"23.04.2025";"Overføring  34532368470 Marcus Gad Rasmussen Apple Pencil";"24.04.2025";"";436
+"23.04.2025";"Overføring Innland  755 Henning Osmo Nordhagen Saft x 3";"24.04.2025";"";126
+"24.04.2025";"Giro  754 Gjensidige Forsikring Asa AvtalegiroGjensidige Forsikring Asa";"24.04.2025";95;""
+"23.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 23.04 kl. 17.06";"24.04.2025";279.83;""
+"24.04.2025";"Kontoregulering  277 Mobil Overføring ";"24.04.2025";"";84
+"24.04.2025";"Kontoregulering  276 Mobil Overføring ";"24.04.2025";"";154
+"24.04.2025";"Kontoregulering  206 Mobil Overføring ";"24.04.2025";"";1000
+"24.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 24.04 kl. 09.57";"24.04.2025";63.8;""
+"24.04.2025";"Kontoregulering  764 Mobil Overføring ";"24.04.2025";1000;""
+"24.04.2025";"Kontoregulering  278 Mobil Overføring ";"24.04.2025";"";32
+"24.04.2025";"Varekjøp Storo Post i Bu Vitaminveien Oslo Dato 24.04 kl. 13.54";"24.04.2025";18;""
+"25.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 25.04 kl. 11.59";"25.04.2025";55.9;""
+"24.04.2025";"Visa  100021  Vipps:posten Norge AS Pos";"25.04.2025";73;""
+"27.04.2025";"Overføring  4110135716 Davide Cafaro Tpp: Vipps";"28.04.2025";"";200
+"25.04.2025";"Kontoregulering  279 Mobil Overføring ";"28.04.2025";"";520
+"25.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 25.04 kl. 17.59";"28.04.2025";520.53;""
+"26.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 26.04 kl. 12.28";"28.04.2025";31.9;""
+"26.04.2025";"Varekjøp Vitusapotek Sto Vitaminvn. 7 Oslo Dato 26.04 kl. 16.25";"28.04.2025";129.9;""
+"26.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 26.04 kl. 20.39";"28.04.2025";205.1;""
+"26.04.2025";"Varekjøp Normal Oslo Vitaminveien Oslo Dato 26.04 kl. 16.32";"28.04.2025";122;""
+"28.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 28.04 kl. 12.09";"28.04.2025";31.9;""
+"28.04.2025";"Overføring Innland  765 Ole Morten Gården BetalingTpp: Vipps Mobilepay AS";"28.04.2025";16.5;""
+"28.04.2025";"E-varekjøp Kiwi 586 Trikke Oslo Dato 28.04 kl. 13.42";"28.04.2025";35.36;""
+"28.04.2025";"Kontoregulering  280 Mobil Overføring ";"29.04.2025";"";350
+"28.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 28.04 kl. 19.38";"29.04.2025";42.9;""
+"28.04.2025";"Varekjøp Matkroken Tåsen Nils Laurits Oslo Dato 28.04 kl. 16.28";"29.04.2025";35;""
+"29.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 29.04 kl. 09.27";"29.04.2025";26.9;""
+"29.04.2025";"Varekjøp Bunnpris Nydale Gunnar Schel Oslo Dato 29.04 kl. 11.12";"29.04.2025";48;""
+"28.04.2025";"Visa  100022  Nok 39,00 Apple.com/bill";"29.04.2025";39;""
+"29.04.2025";"E-varekjøp Kiwi 419 Storo Oslo Dato 29.04 kl. 16.03";"30.04.2025";289.08;""
+"30.04.2025";"Varekjøp Bunnpris Blinde Problemveien Oslo Dato 30.04 kl. 07.54";"30.04.2025";31.9;""
+"30.04.2025";"E-varekjøp Kiwi 586 Trikke Oslo Dato 30.04 kl. 11.31";"30.04.2025";124;""
+"30.04.2025";"Overføring Innland  500 Ole Morten Gården ";"30.04.2025";"";17
