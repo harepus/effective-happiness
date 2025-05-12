@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🧾 Personal Finance Tracker</h1>
+      </header>
+
+      <section class="upload-section">
+        <div class="file-upload">
+          <input type="file" id="fileInput" accept=".txt,.csv,.xlsx" />
+          <button id="uploadBtn" class="primary-btn">Upload File</button>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="chart-container">
+          <h2>Spending by Category</h2>
+          <canvas id="pieChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <h2>Daily Expenses</h2>
+          <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <h2>Monthly Income vs. Spending</h2>
+          <canvas id="lineChart"></canvas>
+        </div>
+      </section>
+
+      <section id="output" class="output-section"></section>
+
+      <section class="trumf-section">
+        <h2>🛒 Trumf Receipt Integration</h2>
+        <p>
+          Import your detailed grocery data from Trumf to enhance your spending
+          analysis.
+        </p>
+
+        <div class="trumf-token-input">
+          <input
+            type="text"
+            id="trumfTokenInput"
+            placeholder="Paste your Trumf token here"
+          />
+          <button id="fetchTrumfBtn" class="primary-btn">
+            Import Trumf Data
+          </button>
+          <button id="debugTrumfBtn" class="secondary-btn">
+            Debug Trumf API
+          </button>
+        </div>
+
+        <div class="token-help">
+          <details>
+            <summary>How to get your Trumf token</summary>
+            <ol>
+              <li>
+                Go to
+                <a href="https://trumf.no" target="_blank">Trumf.no</a> and log
+                in
+              </li>
+              <li>
+                Go to the
+                <a href="https://trumf.no/kvitteringer" target="_blank"
+                  >receipts page</a
+                >
+              </li>
+              <li>Click on one of the receipt icons in the list</li>
+              <li>
+                If you see a popup asking to confirm your password, click
+                "Bekreft passord"
+              </li>
+              <li>Enter your password (and SMS code if required)</li>
+              <li>You'll be redirected back to the history page</li>
+              <li>
+                Open Developer Tools (F12 on Windows, Option + CMD + J on Mac)
+              </li>
+              <li>Go to the "Console" tab</li>
+              <li>
+                Copy and paste this code into the console and press Enter:<br />
+                <code>copy(window._siteGlobalSettings.userToken)</code>
+              </li>
+              <li>
+                The token is now in your clipboard - paste it in the field above
+              </li>
+            </ol>
+          </details>
+        </div>
+
+        <div id="trumfOutput" class="trumf-output"></div>
+      </section>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
