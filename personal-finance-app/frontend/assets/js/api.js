@@ -1,198 +1,177 @@
-const API_URL = "http://127.0.0.1:8000";
+/**
+ * API helper functions for communicating with the backend
+ */
 
-// Transaction methods
-export async function uploadTransactionFile(file) {
+// Base API URL - dynamically detect URL or use default
+const API_BASE_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : "http://192.168.1.235:8000";
+
+// Default headers
+const DEFAULT_HEADERS = {
+  "Content-Type": "application/json",
+  Accept: "application/json",
+};
+
+/**
+ * Make an API request with error handling
+ *
+ * @param {string} endpoint - API endpoint to call
+ * @param {Object} options - Request options (method, headers, body)
+ * @returns {Promise<Object>} - Response data
+ */
+async function apiRequest(endpoint, options = {}) {
+  const url = `${API_BASE_URL}${endpoint}`;
+  console.log(`Making API request to: ${url}`, options.method || "GET");
+
+  // Set up default options
+  const requestOptions = {
+    method: options.method || "GET",
+    headers: {
+      ...DEFAULT_HEADERS,
+      ...options.headers,
+    },
+    // Only include body for non-GET requests
+    ...(options.method !== "GET" && options.body ? { body: options.body } : {}),
+    // Mode for CORS
+    mode: "cors",
+    // Omit credentials for now as it can cause preflight CORS issues
+    credentials: "omit",
+  };
+
+  try {
+    console.log("Request options:", requestOptions);
+    const response = await fetch(url, requestOptions);
+
+    // Handle non-2xx responses
+    if (!response.ok) {
+      let errorMessage = `API Error: ${response.status} ${response.statusText}`;
+
+      // Try to parse error response
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.detail || errorData.message || errorMessage;
+      } catch (e) {
+        // Ignore if we can't parse the error message
+      }
+
+      throw new Error(errorMessage);
+    }
+
+    // Parse JSON response
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`API request to ${endpoint} failed:`, error);
+    throw error;
+  }
+}
+
+/**
+ * Upload a file to the API
+ *
+ * @param {File} file - The file to upload
+ * @returns {Promise<Object>} - Response data
+ */
+async function uploadFile(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  try {
-    const response = await fetch(`${API_URL}/transactions/upload`, {
-      method: "POST",
-      body: formData,
-    });
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error uploading file:", error);
-    return { error: "Failed to upload file" };
-  }
+  return apiRequest("/upload", {
+    method: "POST",
+    headers: {
+      // Let the browser set content type with boundary for multipart form data
+      Accept: "application/json",
+    },
+    body: formData,
+  });
 }
 
-// Trumf methods
-export async function fetchTrumfTransactions(token, limit = 100) {
-  try {
-    const response = await fetch(
-      `${API_URL}/trumf/transactions?limit=${limit}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+/**
+ * Upload a file directly to test endpoint
+ *
+ * @param {File} file - The file to upload
+ * @returns {Promise<Object>} - Response data
+ */
+async function uploadFileDirect(file) {
+  const formData = new FormData();
+  formData.append("file", file);
 
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching Trumf transactions:", error);
-    return { error: "Failed to fetch Trumf data" };
-  }
+  return apiRequest("/direct-upload", {
+    method: "POST",
+    headers: {
+      // Let the browser set content type with boundary for multipart form data
+      Accept: "application/json",
+    },
+    body: formData,
+  });
 }
 
-export async function fetchTrumfReceipt(token, batchId) {
-  try {
-    const response = await fetch(`${API_URL}/trumf/receipts/${batchId}`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const data = await response.json();
-    console.log(`Receipt data for batch ${batchId}:`, data);
-    return data;
-  } catch (error) {
-    console.error(`Error fetching Trumf receipt for batch ${batchId}:`, error);
-    return { error: "Failed to fetch receipt data: " + error.message };
-  }
+/**
+ * Analyze transactions
+ *
+ * @param {Array} transactions - List of transactions to analyze
+ * @returns {Promise<Object>} - Analysis report
+ */
+async function analyzeTransactions(transactions) {
+  return apiRequest("/analyze", {
+    method: "POST",
+    body: JSON.stringify(transactions),
+  });
 }
 
-export async function testDirectTrumfAccess(token, batchId) {
-  try {
-    // Test direct access to Trumf API (bypassing our backend)
-    const directResponse = await fetch(
-      `https://platform-rest-prod.ngdata.no/trumf/medlemskap/transaksjoner/digitalkvittering/${batchId}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/json",
-        },
-      }
-    );
-
-    console.log("Direct Trumf API Response Status:", directResponse.status);
-
-    if (directResponse.status === 200) {
-      const data = await directResponse.json();
-      console.log("Direct Trumf Receipt Data:", data);
-
-      // If you don't see the items array in the console log, log the structure
-      console.log("Receipt data structure:", Object.keys(data));
-
-      // Try to find the items - they might be nested in a different property
-      let items = [];
-      if (data.items) {
-        items = data.items;
-      } else if (data.receipt && data.receipt.items) {
-        items = data.receipt.items;
-      } else if (data.kvittering && data.kvittering.varer) {
-        // Norwegian API might use different property names
-        items = data.kvittering.varer;
-      } else if (data.varelinjer || data.varer) {
-        // Other possible property names
-        items = data.varelinjer || data.varer;
-      }
-
-      console.log("Found items:", items);
-
-      return {
-        success: true,
-        data: data,
-        items: items,
-      };
-    } else {
-      console.error("Direct Trumf API Error Status:", directResponse.status);
-      return {
-        success: false,
-        status: directResponse.status,
-        statusText: directResponse.statusText,
-      };
-    }
-  } catch (error) {
-    console.error("Error testing direct Trumf access:", error);
-    return {
-      success: false,
-      error: error.message,
-    };
-  }
+/**
+ * Get Trumf transactions
+ *
+ * @param {string} token - Trumf authorization token
+ * @returns {Promise<Object>} - Trumf transactions
+ */
+async function getTrumfTransactions(token) {
+  return apiRequest("/trumf/transactions", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
-export async function fetchTrumfReceiptViaWebAPI(token, batchId) {
-  try {
-    // Try the web frontend API endpoint
-    const response = await fetch(
-      `https://www.trumf.no/api/digitalkvittering/${batchId}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/json",
-        },
-        credentials: "include", // This might be important for cookies
-      }
-    );
-
-    console.log("Web API response status:", response.status);
-
-    if (response.status === 200) {
-      const data = await response.json();
-      return data;
-    } else {
-      // Try alternative endpoint format
-      const altResponse = await fetch(
-        `https://www.trumf.no/api/medlem/kvitteringer/${batchId}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            Accept: "application/json",
-          },
-          credentials: "include",
-        }
-      );
-
-      if (altResponse.status === 200) {
-        return await altResponse.json();
-      }
-
-      return { error: `Failed with status: ${response.status}` };
-    }
-  } catch (error) {
-    console.error("Error fetching receipt via web API:", error);
-    return { error: error.message };
-  }
+/**
+ * Get detailed Trumf receipt
+ *
+ * @param {string} batchId - Receipt batch ID
+ * @param {string} token - Trumf authorization token
+ * @returns {Promise<Object>} - Detailed receipt data
+ */
+async function getTrumfReceipt(batchId, token) {
+  return apiRequest(`/trumf/receipts/${batchId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
-export async function monitorKassalappTrumfRequests() {
-  console.log(
-    "Please navigate to Kassalapp and open a receipt. This will log API calls to help us understand their approach."
-  );
-
-  // Monitor fetch requests
-  const originalFetch = window.fetch;
-  window.fetch = function (url, options) {
-    if (url && (url.includes("trumf") || url.includes("kvittering"))) {
-      console.log("KASSALAPP FETCH:", { url, options });
-    }
-    return originalFetch.apply(this, arguments);
-  };
-
-  // Monitor XHR requests
-  const originalXHR = window.XMLHttpRequest.prototype.open;
-  window.XMLHttpRequest.prototype.open = function () {
-    this.addEventListener("load", function () {
-      if (
-        arguments[1] &&
-        (arguments[1].includes("trumf") || arguments[1].includes("kvittering"))
-      ) {
-        console.log("KASSALAPP XHR:", arguments);
-        console.log("Response:", this.responseText);
-      }
-    });
-    return originalXHR.apply(this, arguments);
-  };
-
-  console.log(
-    "API monitoring active - navigate to a Kassalapp receipt to see the API calls"
-  );
+/**
+ * Debug Trumf API connection
+ *
+ * @param {string} batchId - Receipt batch ID for testing
+ * @param {string} token - Trumf authorization token
+ * @returns {Promise<Object>} - Debug information
+ */
+async function debugTrumfConnection(batchId, token) {
+  return apiRequest(`/trumf/direct-debug/${batchId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
+
+export {
+  apiRequest,
+  uploadFile,
+  uploadFileDirect,
+  analyzeTransactions,
+  getTrumfTransactions,
+  getTrumfReceipt,
+  debugTrumfConnection,
+};
