@@ -136,11 +136,11 @@ CATEGORY_HIERARCHY = {
             "subcategories": {
                 "salary": {
                     "name": "Salary",
-                    "keywords": ["lønn", "salary", "utbetaling", "fra arbeidsgiver", "arbeid"]
+                    "keywords": ["lønn", "salary", "utbetaling", "fra arbeidsgiver", "arbeid", "universitetet", "studentsamskipnaden", "sio"]
                 },
                 "benefits": {
                     "name": "Benefits & Support",
-                    "keywords": ["nav", "stipend", "stønad", "lånekassen", "scholarship"]
+                    "keywords": ["nav", "stipend", "stønad", "lånekassen", "scholarship", "lånekasse", "statens lånekasse"]
                 }
             }
         },
@@ -189,8 +189,9 @@ CATEGORY_KEYWORDS = {
     "investing": ["nordnet", "aksje", "fond", "etf", "sbanken invest"],
     
     # 🔼 Income
-    "salary": ["lønn", "salary", "utbetaling", "fra arbeidsgiver", "arbeid"],
+    "salary": ["lønn", "salary", "utbetaling", "fra arbeidsgiver", "arbeid", "universitetet", "studentsamskipnaden", "sio"],
     "refunds": ["refusjon", "tilbakebetaling", "vipps fra", "vippsbetaling mottatt", "betaling fra"],
+    "benefits": ["nav", "stipend", "stønad", "lånekassen", "scholarship", "lånekasse", "statens lånekasse"],
     
     # 🔄 Transfers (neutral, may or may not be saving)
     "transfers": ["overføring", "til konto", "fra konto", "egen konto", "dnb", "sparekonto"]

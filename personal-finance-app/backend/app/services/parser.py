@@ -233,6 +233,16 @@ async def parse_file(file: UploadFile) -> Dict[str, Any]:
                     parent_category = category_info
                     subcategory = category_info
                 
+                # If it's not an expense but wasn't categorized as income, force it as income
+                if not is_expense and main_category != "income":
+                    # Override the categorization for non-expenses
+                    main_category = "income"
+                    parent_category = "other_income"
+                    subcategory = "uncategorized_income"
+                    category_name = f"{parent_category}.{subcategory}"
+                    display_name = "Other Income"
+                    logger.debug(f"Forced income categorization for: {description} with amount {amount}")
+                
                 # Create transaction object
                 transaction = {
                     "date": date_iso,
@@ -286,11 +296,16 @@ async def parse_file(file: UploadFile) -> Dict[str, Any]:
                 if month_year != "unknown":
                     if month_year not in result["stats"]["monthly_summary"]:
                         result["stats"]["monthly_summary"][month_year] = {"income": 0.0, "expenses": 0.0}
+                        logger.debug(f"Created new monthly summary entry for {month_year}")
                     
                     if is_expense:
                         result["stats"]["monthly_summary"][month_year]["expenses"] += abs_amount
                     else:
+                        # For income transactions
+                        prev_income = result["stats"]["monthly_summary"][month_year]["income"]
                         result["stats"]["monthly_summary"][month_year]["income"] += abs_amount
+                        logger.debug(f"Adding income: {abs_amount} to {month_year}, description: {description}, is_expense: {is_expense}")
+                        logger.debug(f"Monthly income for {month_year} updated from {prev_income} to {result['stats']['monthly_summary'][month_year]['income']}")
                         
             except Exception as e:
                 # Log error but continue with next row
@@ -312,6 +327,9 @@ async def parse_file(file: UploadFile) -> Dict[str, Any]:
         # Add error message if no transactions were processed
         if not result["transactions"]:
             result["warning"] = "No valid transactions found in the file."
+        
+        # Log the monthly summary for debugging
+        logger.debug(f"Monthly summary before serialization: {result['stats']['monthly_summary']}")
             
         # Ensure all values are serializable
         serializable_result = ensure_serializable(result)

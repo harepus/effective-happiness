@@ -11,6 +11,13 @@ class CalendarView {
   }
 
   initialize() {
+    // Add custom styles to container
+    if (this.container && this.container.parentElement) {
+      this.container.parentElement.style.minHeight = "auto";
+      this.container.style.maxHeight = "400px";
+      this.container.style.overflowY = "auto";
+    }
+
     // Create initial calendar structure
     this.render();
 
@@ -18,6 +25,29 @@ class CalendarView {
     document.addEventListener("transaction-data-updated", (event) => {
       this.updateData(event.detail);
     });
+
+    // Set up event listener for window resize
+    window.addEventListener("resize", this.handleResize.bind(this));
+
+    // Initial resize
+    this.handleResize();
+  }
+
+  handleResize() {
+    // Adjust calendar size based on container width
+    if (this.container) {
+      // If screen is smaller than 768px, use a more compact day cell
+      const isMobile = window.innerWidth < 768;
+
+      const calendar = this.container.querySelector(".calendar");
+      if (calendar) {
+        if (isMobile || window.innerWidth < 1200) {
+          calendar.classList.add("compact");
+        } else {
+          calendar.classList.remove("compact");
+        }
+      }
+    }
   }
 
   updateData(data) {
@@ -66,16 +96,25 @@ class CalendarView {
     const values = Object.values(this.data).filter((v) => v > 0);
     const maxAmount = values.length > 0 ? Math.max(...values) : 0;
 
+    // Determine if we're in compact mode (for mobile or smaller screens)
+    const isMobile = window.innerWidth < 768;
+    const isSmall = window.innerWidth < 1200;
+    const compactClass = isMobile || isSmall ? "compact" : "";
+
     // Generate HTML
     let html = `
-      <div class="calendar">
-        <div class="calendar-header">
+      <div class="calendar ${compactClass}" style="max-width:100%; margin:0; box-sizing:border-box;">
+        <div class="calendar-header" style="padding:10px;">
           <button class="prev-month">&#10094;</button>
-          <h2>${monthNames[this.currentMonth]} ${this.currentYear}</h2>
+          <h2 style="font-size:${isMobile ? "1rem" : "1.2rem"}; margin:0;">${
+      monthNames[this.currentMonth]
+    } ${this.currentYear}</h2>
           <button class="next-month">&#10095;</button>
         </div>
         
-        <div class="weekdays">
+        <div class="weekdays" style="font-size:${
+          isMobile ? "0.7rem" : "0.8rem"
+        };">
           <div>Sun</div>
           <div>Mon</div>
           <div>Tue</div>
@@ -85,7 +124,9 @@ class CalendarView {
           <div>Sat</div>
         </div>
         
-        <div class="days">
+        <div class="days" style="padding:${isMobile ? "5px" : "8px"}; gap:${
+      isMobile ? "2px" : "3px"
+    };">
     `;
 
     // Add empty spaces for days before the first day of the month
@@ -112,12 +153,35 @@ class CalendarView {
       // Today class
       const isToday = this.isToday(day);
 
+      // Formatting for amount display (abbreviated for compact view)
+      let amountDisplay = "";
+      if (amount > 0) {
+        if ((isMobile || isSmall) && amount >= 1000) {
+          // For mobile, use abbreviated form (1K, 2.5K) for amounts >= 1000
+          amountDisplay = `${(amount / 1000).toFixed(1)}K`;
+        } else {
+          amountDisplay = amount.toFixed(0);
+        }
+      }
+
       html += `
         <div class="day ${
           isToday ? "today" : ""
-        } heat-${heatLevel}" data-date="${dateStr}">
-          <div class="day-number">${day}</div>
-          ${amount > 0 ? `<div class="amount">${amount.toFixed(0)}</div>` : ""}
+        } heat-${heatLevel}" data-date="${dateStr}" style="min-height:${
+        isMobile ? "40px" : "60px"
+      }; padding:${isMobile ? "2px" : "4px"};">
+          <div class="day-number" style="font-size:${
+            isMobile ? "0.7rem" : "0.8rem"
+          };">${day}</div>
+          ${
+            amount > 0
+              ? `<div class="amount" style="margin-top:${
+                  isMobile ? "14px" : "20px"
+                }; font-size:${
+                  isMobile ? "0.8rem" : "0.9rem"
+                };">${amountDisplay}</div>`
+              : ""
+          }
         </div>
       `;
     }
@@ -125,9 +189,11 @@ class CalendarView {
     html += `
         </div>
         
-        <div class="legend">
+        <div class="legend" style="padding:${
+          isMobile ? "5px" : "10px"
+        }; font-size:${isMobile ? "0.7rem" : "0.8rem"};">
           <div class="legend-title">Daily Spending</div>
-          <div class="legend-scale">
+          <div class="legend-scale" style="gap:${isMobile ? "5px" : "10px"};">
             <div class="legend-item">
               <div class="legend-color heat-0"></div>
               <div class="legend-label">None</div>
@@ -235,6 +301,12 @@ class CalendarView {
         document.body.removeChild(modal);
       }
     });
+  }
+
+  cleanup() {
+    // Clean up event listeners
+    window.removeEventListener("resize", this.handleResize.bind(this));
+    document.removeEventListener("transaction-data-updated", this.updateData);
   }
 }
 
